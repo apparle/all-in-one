@@ -9,6 +9,12 @@ elif ! test -r /var/run/docker.sock; then
     exit 1
 fi
 
+# Check if running under Podman
+if [ -f /run/.containerenv ]; then
+    echo "Running under Podman. Setting WATCHTOWER_DISABLE_MEMORY_SWAPPINESS to 1."
+    export WATCHTOWER_DISABLE_MEMORY_SWAPPINESS=1
+fi
+
 if [ -n "$CONTAINER_TO_UPDATE" ]; then
     exec /watchtower --cleanup --debug --run-once "$CONTAINER_TO_UPDATE"
 else
