@@ -4,11 +4,8 @@ FROM golang:1.24.3-alpine3.21 AS go
 RUN set -ex; \
     apk upgrade --no-cache -a; \
     apk add --no-cache \
-        build-base git; \
-    git clone -b podman-compatibility --single-branch https://github.com/apparle/watchtower /watchtower; \
-    cd /watchtower; \
-    go install -v /watchtower;
-
+        build-base; \
+    go install github.com/nicholas-fedor/watchtower@v1.10.0;
 
 FROM alpine:3.21.3
 
