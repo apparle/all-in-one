@@ -8,7 +8,7 @@ ENV SOURCE_LOCATION=/usr/src/nextcloud
 ENV REDIS_DB_INDEX=0
 
 # AIO settings start # Do not remove or change this line!
-ENV NEXTCLOUD_VERSION=31.0.6
+ENV NEXTCLOUD_VERSION=31.0.14
 ENV AIO_TOKEN=123456
 ENV AIO_URL=localhost
 # AIO settings end # Do not remove or change this line!
@@ -79,10 +79,10 @@ RUN set -ex; \
     \
 # pecl will claim success even if one install fails, so we need to perform each install separately
     pecl install -o igbinary-3.2.16; \
-    pecl install APCu-5.1.24; \
-    pecl install -D 'enable-memcached-igbinary="yes"' memcached-3.3.0; \
-    pecl install -oD 'enable-redis-igbinary="yes" enable-redis-zstd="yes" enable-redis-lz4="yes"' redis-6.2.0; \
-   pecl install -o imagick-3.8.0; \
+    pecl install APCu-5.1.28; \
+    pecl install -D 'enable-memcached-igbinary="yes"' memcached-3.4.0; \
+    pecl install -oD 'enable-redis-igbinary="yes" enable-redis-zstd="yes" enable-redis-lz4="yes"' redis-6.3.0; \
+   pecl install -o imagick-3.8.1; \
     \
     docker-php-ext-enable \
         igbinary \
