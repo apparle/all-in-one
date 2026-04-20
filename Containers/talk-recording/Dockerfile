@@ -4,7 +4,7 @@ FROM python:3.13.5-alpine3.21
 COPY --chmod=775 start.sh /start.sh
 COPY --chmod=775 healthcheck.sh /healthcheck.sh
 
-ENV RECORDING_VERSION=v0.1
+ENV RECORDING_VERSION=v0.2.1
 ENV ALLOW_ALL=false
 ENV HPB_PROTOCOL=https
 ENV NC_PROTOCOL=https
